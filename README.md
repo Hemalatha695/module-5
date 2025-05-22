@@ -15,25 +15,15 @@ To write a C Program to find area of rectangle using pointer.
 
 int main() {
     float length, width, area;
-    float *l, *w;  // Pointers for length and width
-
-    // Step 2: Read two numbers (length and width)
+    float *l, *w; 
     printf("Enter the length of the rectangle: ");
     scanf("%f", &length);
     printf("Enter the width of the rectangle: ");
     scanf("%f", &width);
-
-    // Point the pointers to the addresses of length and width
     l = &length;
     w = &width;
-
-    // Step 3: Calculate the area of the rectangle using pointers
-    area = (*l) * (*w);  // Dereference the pointers to get values and calculate area
-
-    // Step 4: Display the result
+    area = (*l) * (*w); 
     printf("The area of the rectangle is: %.2f\n", area);
-
-    // Step 5: End the program
     return 0;
 }
 ```
@@ -66,30 +56,18 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 ## PROGRAM
 ```
 #include <stdio.h>
-#include <stdlib.h>  // For malloc() and free()
+#include <stdlib.h>  
 
 int main() {
-    char *str;  // Declare a pointer to hold the string
-
-    // Step 3: Allocate memory using malloc() to hold the string "WELCOME"
-    str = (char *)malloc(8 * sizeof(char));  // Allocating memory for 8 characters (7 + 1 for null terminator)
-
-    // Check if memory allocation was successful
+    char *str; 
+    str = (char *)malloc(8 * sizeof(char)); 
     if (str == NULL) {
         printf("Memory allocation failed.\n");
-        return 1;  // Exit the program if memory allocation fails
+        return 1;  
     }
-
-    // Step 2: Assign the string "WELCOME" to the allocated memory
-    str = "WELCOME";  // Storing "WELCOME" in the dynamically allocated memory
-
-    // Step 4: Display the string
+    str = "WELCOME";
     printf("%s\n", str);
-
-    // Step 5: Free the allocated memory
     free(str);
-
-    // Step 6: End the program
     return 0;
 }
 ```
@@ -122,8 +100,6 @@ To write a C Program to store the student information and display it using struc
 ## PROGRAM
 ```
 #include <stdio.h>
-
-// Step 2: Define the structure for student
 struct student {
     char name[50];
     int roll_no;
@@ -131,17 +107,13 @@ struct student {
 };
 
 int main() {
-    struct student stu;  // Step 3: Declare a structure variable
-
-    // Step 3: Read the structure members
+    struct student stu;  
     printf("Enter student's name: ");
     scanf("%s", stu.name);
     printf("Enter student's roll number: ");
     scanf("%d", &stu.roll_no);
     printf("Enter student's marks: ");
     scanf("%f", &stu.marks);
-
-    // Step 4: Display the structure members
     printf("\nStudent Information:\n");
     printf("Name: %s\n", stu.name);
     printf("Roll Number: %d\n", stu.roll_no);
@@ -187,8 +159,6 @@ To write a C Program to read and store the data of 3 employees and calculate the
 ## PROGRAM
 ```
 #include <stdio.h>
-
-// Step 2: Define the structure for employee
 struct employee {
     char name[50];
     int id;
@@ -197,13 +167,13 @@ struct employee {
 };
 
 int main() {
-    struct employee emp[3];  // Array to store details of 3 employees
-    float allowance = 0.20;  // Example allowance (20% of basic salary)
-    float deduction = 0.10;  // Example deduction (10% of basic salary)
-
-    // Step 3: Read employee details for 3 employees
+    struct employee emp[3];  
+    float allowance = 0.20;  
+    float deduction = 0.10;  
     for (int i = 0; i < 3; i++) {
         printf("Enter details for Employee %d:\n", i + 1);
+     }
+}
 ```
 
  ## OUTPUT
@@ -288,44 +258,32 @@ Step 8: End the program.
 ## PROGRAM
 ```
 #include <stdio.h>
-
-// Step 2: Define the structure for student
 struct student {
-    char name[10];        // Name of the student (not used in logic)
-    int rollno;           // Roll number of the student (not used in logic)
-    int subject[5];       // Array to store marks of 5 subjects
-    int total;            // To store total marks
+    char name[10];       
+    int rollno;           
+    int subject[5];       
+    int total;            
 };
 
 int main() {
-    struct student s[2];  // Step 3: Declare an array of 2 students
+    struct student s[2]; 
     int n, i, j;
-
-    // Step 4: Input loop to read subject marks for each student
     for (i = 0; i < 2; i++) {
         printf("Enter details for student %d:\n", i + 1);
-
-        // Read roll number (not used)
         printf("Enter roll number (not used in logic): ");
         scanf("%d", &n);
-
-        // Read marks for 5 subjects
         printf("Enter marks for 5 subjects: ");
         for (j = 0; j < 5; j++) {
             scanf("%d", &s[i].subject[j]);
         }
     }
-
-    // Step 5: Total marks calculation
     for (i = 0; i < 2; i++) {
         s[i].total = 0;
         for (j = 0; j < 5; j++) {
             s[i].total += s[i].subject[j];
         }
     }
-
-    // Step 6: Hardcoded total marks for testing (optional)
-    s[0].total = 374;  // Hardcoded for
+    s[0].total = 374; 
 ```
 
 ## OUTPUT
