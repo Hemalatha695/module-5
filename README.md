@@ -28,12 +28,7 @@ int main() {
 }
 ```
 ## OUTPUT
-```
-Enter the length of the rectangle: 10.5
-Enter the width of the rectangle: 4.2
-The area of the rectangle is: 44.10
-```		       	
-
+![image](https://github.com/user-attachments/assets/a723c462-d4cd-4416-bcb2-f971e098eb9b)
 
 ## RESULT
 Thus the program to find area of rectangle using pointer has been executed successfully
@@ -72,18 +67,13 @@ int main() {
 }
 ```
 ## OUTPUT
-```
-WELCOME
-```
+![image](https://github.com/user-attachments/assets/b6110b62-99d0-4d3b-b0f3-a152fbe82fa3)
+
 
 
 ## RESULT
 Thus the program to print 'WELCOME' using malloc() and free() has been executed successfully
  
-.
-
-
-
 # EX-28-STUDENT-INFORMATION-USING-STRUCTURE
 
 ## AIM
@@ -100,40 +90,30 @@ To write a C Program to store the student information and display it using struc
 ## PROGRAM
 ```
 #include <stdio.h>
-struct student {
+
+struct Employee 
+{
+    int id;
     char name[50];
-    int roll_no;
-    float marks;
+    float age;
 };
 
-int main() {
-    struct student stu;  
-    printf("Enter student's name: ");
-    scanf("%s", stu.name);
-    printf("Enter student's roll number: ");
-    scanf("%d", &stu.roll_no);
-    printf("Enter student's marks: ");
-    scanf("%f", &stu.marks);
-    printf("\nStudent Information:\n");
-    printf("Name: %s\n", stu.name);
-    printf("Roll Number: %d\n", stu.roll_no);
-    printf("Marks: %.2f\n", stu.marks);
+int main() 
+{
+    struct Employee employees;
+    scanf("%d", &employees.id);
+    scanf(" %s", employees.name);
+    scanf("%f", &employees.age);
+    printf("Rollno is: %d\nName is: %s\nPercentage is: %.2f\n", employees.id, employees.name, employees.age);
+  
 
     return 0;
 }
 ```
 
 ## OUTPUT
-```
-Enter student's name: John
-Enter student's roll number: 101
-Enter student's marks: 85.5
+![image](https://github.com/user-attachments/assets/e60fd157-705f-44d8-a8de-1eb3447014ca)
 
-Student Information:
-Name: John
-Roll Number: 101
-Marks: 85.50
-```
 
 ## RESULT
 
@@ -159,61 +139,54 @@ To write a C Program to read and store the data of 3 employees and calculate the
 ## PROGRAM
 ```
 #include <stdio.h>
-struct employee {
+
+struct Employee {
     char name[50];
-    int id;
-    float basic_salary;
-    float gross_salary;
+    float basicSalary;
+    float hra;
+    float da;
+    float grossSalary;
 };
 
 int main() {
-    struct employee emp[3];  
-    float allowance = 0.20;  
-    float deduction = 0.10;  
+    struct Employee emp[3];
+
     for (int i = 0; i < 3; i++) {
         printf("Enter details for Employee %d:\n", i + 1);
-     }
+        
+        printf("Enter Name: ");
+        scanf("%s", emp[i].name);
+        
+        printf("Enter Basic Salary: ");
+        scanf("%f", &emp[i].basicSalary);
+        
+        printf("Enter HRA: ");
+        scanf("%f", &emp[i].hra);
+        
+        printf("Enter DA: ");
+        scanf("%f", &emp[i].da);
+
+        emp[i].grossSalary = emp[i].basicSalary + emp[i].hra + emp[i].da;
+        printf("\n");
+    }
+
+    printf("Employee Details and Gross Salary:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Employee %d\n", i + 1);
+        printf("Name: %s\n", emp[i].name);
+        printf("Basic Salary: %.2f\n", emp[i].basicSalary);
+        printf("HRA: %.2f\n", emp[i].hra);
+        printf("DA: %.2f\n", emp[i].da);
+        printf("Gross Salary: %.2f\n", emp[i].grossSalary);
+        printf("\n");
+    }
+
+    return 0;
 }
 ```
 
  ## OUTPUT
-```
-Enter details for Employee 1:
-Enter name: John
-Enter ID: 101
-Enter basic salary: 5000
-
-Enter details for Employee 2:
-Enter name: Alice
-Enter ID: 102
-Enter basic salary: 6000
-
-Enter details for Employee 3:
-Enter name: Bob
-Enter ID: 103
-Enter basic salary: 5500
-
-Employee Details and Gross Salary:
-
-Employee 1:
-Name: John
-ID: 101
-Basic Salary: 5000.00
-Gross Salary: 5200.00
-
-Employee 2:
-Name: Alice
-ID: 102
-Basic Salary: 6000.00
-Gross Salary: 6240.00
-
-Employee 3:
-Name: Bob
-ID: 103
-Basic Salary: 5500.00
-Gross Salary: 5720.00
-```
- 
+![image](https://github.com/user-attachments/assets/0fc1b132-e563-4bb7-a4e2-80afd0dd2eb5)
 
 ## RESULT
 
@@ -258,51 +231,43 @@ Step 8: End the program.
 ## PROGRAM
 ```
 #include <stdio.h>
-struct student {
-    char name[10];       
-    int rollno;           
-    int subject[5];       
-    int total;            
+
+struct Student {
+    char name[50];
+    int marks[5];
+    float total;
+    float average;
 };
 
 int main() {
-    struct student s[2]; 
-    int n, i, j;
-    for (i = 0; i < 2; i++) {
-        printf("Enter details for student %d:\n", i + 1);
-        printf("Enter roll number (not used in logic): ");
-        scanf("%d", &n);
-        printf("Enter marks for 5 subjects: ");
-        for (j = 0; j < 5; j++) {
-            scanf("%d", &s[i].subject[j]);
-        }
+    struct Student student;
+    int sum = 0;
+
+    printf("Enter student's name: ");
+    scanf("%s", student.name);
+
+    printf("Enter marks for 5 subjects:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Subject %d: ", i + 1);
+        scanf("%d", &student.marks[i]);
+        sum += student.marks[i];
     }
-    for (i = 0; i < 2; i++) {
-        s[i].total = 0;
-        for (j = 0; j < 5; j++) {
-            s[i].total += s[i].subject[j];
-        }
-    }
-    s[0].total = 374; 
+
+    student.total = sum;
+    student.average = sum / 5.0;
+
+    printf("\nStudent Name: %s\n", student.name);
+    printf("Total Marks: %.2f\n", student.total);
+    printf("Average Marks: %.2f\n", student.average);
+
+    return 0;
+}
 ```
 
 ## OUTPUT
-```
-Enter details for student 1:
-Enter roll number (not used in logic): 101
-Enter marks for 5 subjects: 78 84 92 75 85
+![image](https://github.com/user-attachments/assets/62242793-32d5-4b1e-b3ab-282ecbac1dbf)
 
-Enter details for student 2:
-Enter roll number (not used in logic): 102
-Enter marks for 5 subjects: 80 88 90 85 85
 
-Student 1 total marks: 374
-Student 1 average marks: 74.80
-
-Student 2 total marks: 383
-Student 2 average marks: 76.60
-```
- 
 
 ## RESULT
 
